@@ -1,0 +1,381 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "批量工具API"
+  },
+  "x-readme": {
+    "explorer-enabled": false,
+    "proxy-enabled": false,
+    "samples-languages": [
+      "json",
+      "shell",
+      "python",
+      "node"
+    ],
+    "parameter-ordering": [
+      "path",
+      "header",
+      "query",
+      "body",
+      "cookie",
+      "form"
+    ]
+  },
+  "tags": [],
+  "paths": {
+    "/coin_tools/distribute": {
+      "post": {
+        "operationId":"create-token-multisender",
+        "summary": "代币分发",
+        "deprecated": false,
+        "description": "此API用于快速将代币发送到多个地址",
+        "tags": [
+          "批量工具API"
+        ],
+        "responses": {
+          "200": {
+            "description": "成功响应",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "err": {
+                      "type": "boolean",
+                      "description": "是否出错"
+                    },
+                    "res": {
+                      "type": "object",
+                      "description": "结果对象"
+                    },
+                    "docs": {
+                      "type": "string",
+                      "description": "文档链接" 
+                    }
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "summary": "Result",
+                    "value": {
+                      "err": false,
+                      "res": [
+                        {
+                          "err": false,
+                          "msg": "OK",
+                          "toList": [
+                            {
+                              "address": "4GPFnQ1Yo9NkWmFgDgtg9VpM4BSbfanNw5G5cprSUnx3",
+                              "amountUI": 0.11
+                            },
+                            {
+                              "address": "Ba1RxEwiiLSwb8CHqPGa4YJrq4JebaJbBDvXMX2RAGiB",
+                              "amountUI": 0.12
+                            },
+                            {
+                              "address": "GuFfw7KHoae3w9gQJT5udjkMatK6Sdzkz1h39cUKA4oW",
+                              "amountUI": 0.13
+                            },
+                            {
+                              "address": "G1B6yupiSnQia349a8T6V5WbnRJo4K7q91P7jG44PRN2",
+                              "amountUI": 0.14
+                            },
+                            {
+                              "address": "Fv3WiFNQDWcjXESthBxUAtDrQYgncLWwVLJnvhUoi8mw",
+                              "amountUI": 0.15
+                            }
+                          ],
+                          "txid": "29zhzqfqRtjb9FPyi9cctsW2ESa6s6YCFKgLbivjdKSfn3suUMxNTjDG77MpFifq2jmc1ypxoZbTD8mGTh51UaSA",
+                          "decimals": 9
+                        },
+                        {
+                          "err": false,
+                          "msg": "OK",
+                          "toList": [
+                            {
+                              "address": "AcazJW66GN2Tk6Wm2x2n1raTLBjVXnZYKwnreCBdosCi",
+                              "amountUI": 0.02
+                            },
+                            {
+                              "address": "BYnVrf7oRwFkNCSzshEDA5Xhf19Z4beHeKNaD6T4eydS",
+                              "amountUI": 0.03
+                            }
+                          ],
+                          "txid": "2PDzSt76aBvW8vUUty7ChP3nxfEHAqo9sHJEZprEEF5MR1gmDqGyrjijkV449y9cskRKKiKtLUU7cKU4fUgcstMo",
+                          "decimals": 9
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [],
+        "x-readme": {
+          "code-samples": [
+            {
+              "code": "{\n  \"name\": \"代币分发\",\n  \"method\": \"POST\",\n  \"path\": \"https://api-bot-v1.dbotx.com/coin_tools/distribute\",\n  \"params\": {\n    \"header\": [\n      \"x-api-key:YOUR_API_KEY\"\n    ]\n  },\n  \"body\": {\n    \"chain\": \"solana\",\n    \"fromWalletId\": \"lvg40po10005q7\",\n    \"toList\": [\n      {\n        \"address\": \"5JVa7ERnqbqNkd1RKanZiPukSpW85vRgA8E8WLiYjS9n\",\n        \"amountUI\": 0.11\n      },\n      {\n        \"address\": \"KLwM1VDAD3HNTWAa9EYCLn8hdaYGWvFWeGUGWi9Hdnz\",\n        \"amountUI\": 0.12\n      }\n    ],\n    \"token\": \"\",\n    \"gasFeeDelta\": 0,\n    \"maxFeePerGas\": 0,\n    \"priorityFee\": 0.001\n  },\n  \"response\": {\n    \"err\": false,\n    \"res\": [\n      {\n        \"err\": false,\n        \"msg\": \"OK\",\n        \"toList\": [\n          {\n            \"address\": \"4GPFnQ1Yo9NkWmFgDgtg9VpM4BSbfanNw5G5cprSUnx3\",\n            \"amountUI\": 0.11\n          },\n          {\n            \"address\": \"Ba1RxEwiiLSwb8CHqPGa4YJrq4JebaJbBDvXMX2RAGiB\",\n            \"amountUI\": 0.12\n          },\n          {\n            \"address\": \"GuFfw7KHoae3w9gQJT5udjkMatK6Sdzkz1h39cUKA4oW\",\n            \"amountUI\": 0.13\n          },\n          {\n            \"address\": \"G1B6yupiSnQia349a8T6V5WbnRJo4K7q91P7jG44PRN2\",\n            \"amountUI\": 0.14\n          },\n          {\n            \"address\": \"Fv3WiFNQDWcjXESthBxUAtDrQYgncLWwVLJnvhUoi8mw\",\n            \"amountUI\": 0.15\n          }\n        ],\n        \"txid\": \"29zhzqfqRtjb9FPyi9cctsW2ESa6s6YCFKgLbivjdKSfn3suUMxNTjDG77MpFifq2jmc1ypxoZbTD8mGTh51UaSA\",\n        \"decimals\": 9\n      },\n      {\n        \"err\": false,\n        \"msg\": \"OK\",\n        \"toList\": [\n          {\n            \"address\": \"AcazJW66GN2Tk6Wm2x2n1raTLBjVXnZYKwnreCBdosCi\",\n            \"amountUI\": 0.02\n          },\n          {\n            \"address\": \"BYnVrf7oRwFkNCSzshEDA5Xhf19Z4beHeKNaD6T4eydS\",\n            \"amountUI\": 0.03\n          }\n        ],\n        \"txid\": \"2PDzSt76aBvW8vUUty7ChP3nxfEHAqo9sHJEZprEEF5MR1gmDqGyrjijkV449y9cskRKKiKtLUU7cKU4fUgcstMo\",\n        \"decimals\": 9\n      }\n    ]\n  }\n}",
+              "language": "json",
+              "name": ""
+            },
+            {
+              "code": "curl --location --request POST 'https://api-bot-v1.dbotx.com/coin_tools/distribute' \\\n     --header 'x-api-key: YOUR_API_KEY' \\\n     --header 'Content-Type: application/json' \\\n     --data-raw '{\"chain\":\"solana\",\"fromWalletId\":\"lvg40po10005q7\",\"toList\":[{\"address\":\"5JVa7ERnqbqNkd1RKanZiPukSpW85vRgA8E8WLiYjS9n\",\"amountUI\":0.11},{\"address\":\"KLwM1VDAD3HNTWAa9EYCLn8hdaYGWvFWeGUGWi9Hdnz\",\"amountUI\":0.12}],\"token\":\"\",\"gasFeeDelta\":0,\"maxFeePerGas\":0,\"priorityFee\":0.001}'",
+              "language": "shell",
+              "name": ""
+            },
+            {
+              "code": "import requests\n\nurl = \"https://api-bot-v1.dbotx.com/coin_tools/distribute\"\nheaders = {\n    'x-api-key': 'YOUR_API_KEY',\n    'Content-Type': 'application/json'\n}\npayload = {\n    'chain': 'solana',\n    'fromWalletId': 'lvg40po10005q7',\n    'toList': [\n        { 'address': '5JVa7ERnqbqNkd1RKanZiPukSpW85vRgA8E8WLiYjS9n', 'amountUI': 0.11 },\n        { 'address': 'KLwM1VDAD3HNTWAa9EYCLn8hdaYGWvFWeGUGWi9Hdnz', 'amountUI': 0.12 }\n    ],\n    'token': '',\n    'gasFeeDelta': 0,\n    'maxFeePerGas': 0,\n    'priorityFee': 0.001\n}\nresponse = requests.post(url, headers=headers, json=payload)\nprint(response.text)",
+              "language": "python",
+              "name": ""
+            },
+            {
+              "code": "const fetch = require('node-fetch');\n\nasync function makeAPICall() {\n  const url = 'https://api-bot-v1.dbotx.com/coin_tools/distribute';\n  const apiKey = 'YOUR_API_KEY';\n  const payload = {\n    chain: 'solana',\n    fromWalletId: 'lvg40po10005q7',\n    toList: [\n      { address: '5JVa7ERnqbqNkd1RKanZiPukSpW85vRgA8E8WLiYjS9n', amountUI: 0.11 },\n      { address: 'KLwM1VDAD3HNTWAa9EYCLn8hdaYGWvFWeGUGWi9Hdnz', amountUI: 0.12 }\n    ],\n    token: '',\n    gasFeeDelta: 0,\n    maxFeePerGas: 0,\n    priorityFee: 0.001\n  };\n\n  try {\n    const response = await fetch(url, {\n      method: 'POST',\n      headers: {\n        'x-api-key': apiKey,\n        'Content-Type': 'application/json'\n      },\n      body: JSON.stringify(payload)\n    });\n\n    if (!response.ok) {\n      throw new Error(`HTTP error! Status: ${response.status}`);\n    }\n\n    const data = await response.json();\n    console.log(JSON.stringify(data, null, 2));\n  } catch (error) {\n    console.error('Error:', error);\n  }\n}\n\nmakeAPICall();",
+              "language": "node",
+              "name": ""
+            }
+          ],
+          "samples-languages": [
+            "json",
+            "shell",
+            "python",
+            "node"
+          ]
+        },
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chain": {
+                    "type": "string",
+                    "description": "链 (solana/ethereum/base/bsc/tron)"
+                  },
+                  "fromWalletId": {
+                    "type": "string",
+                    "description": "分发代币的钱包id"
+                  },
+                  "toList": {
+                    "type": "array",
+                    "description": "接收代币的地址及数量",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "address": {
+                          "type": "string",
+                          "description": "接收代币的地址"
+                        },
+                        "amountUI": {
+                          "type": "number",
+                          "description": "接收代币的数量"
+                        }
+                      },
+                      "required": [
+                        "address",
+                        "amountUI"
+                      ]
+                    }
+                  },
+                  "token": {
+                    "type": "string",
+                    "description": "需要分发的代币地址，空字符串表示分发当前链的主币"
+                  },
+                  "gasFeeDelta": {
+                    "type": "number",
+                    "description": "额外增加的gas (Gwei)，对EVM链有效"
+                  },
+                  "maxFeePerGas": {
+                    "type": "number",
+                    "description": "基础gas超过此值时将不进行交易 (Gwei)，对EVM链有效"
+                  },
+                  "priorityFee": {
+                    "type": "number",
+                    "description": "优先费 (SOL)，对Solana有效，空字符串表示使用自动优先费"
+                  }
+                },
+                "required": [
+                  "chain",
+                  "fromWalletId",
+                  "toList",
+                  "token",
+                  "gasFeeDelta",
+                  "maxFeePerGas",
+                  "priorityFee"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/coin_tools/collect": {
+      "post": {
+        "operationId":"create-token-collection",
+        "summary": "代币归集",
+        "deprecated": false,
+        "description": "此API用于批量归集多个钱包的代币到指定钱包地址",
+        "tags": [
+          "批量工具API"
+        ],
+        "responses": {
+          "200": {
+            "description": "成功响应",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "err": {
+                      "type": "boolean",
+                      "description": "是否出错"
+                    },
+                    "res": {
+                      "type": "object",
+                      "description": "结果对象"
+                    },
+                    "docs": {
+                      "type": "string",
+                      "description": "文档链接"
+                    }
+                  }
+                },
+                "examples": {
+                  "Result": {
+                    "summary": "Result",
+                    "value": {
+                      "err": false,
+                      "res": {
+                        "err": false,
+                        "res": [
+                          {
+                            "err": false,
+                            "msg": "OK",
+                            "walletAddress": "Fnpyvw6cmc8VzKcyLnYENa78uCEsnAUJ5V7aRQXLodw4",
+                            "txid": "3ghheeVeiT6vorkZJehjSvwi4afo8qWL5ru9YfJRzCgcxJyd52ravvobEGDHd6v8ZznfnBj5EGQbYqhEHR33ZHVA",
+                            "amountUnit": "99999999500000",
+                            "decimals": 6
+                          },
+                          {
+                            "err": false,
+                            "msg": "OK",
+                            "walletAddress": "5yRfpu87ackjzYjDJWfxsMG9yC6zoYJPSKNF43SyyfJS",
+                            "txid": "6hRyGmPQBadthc56bbqJivTaSCksHazrkmvidRt5ZQkkaKXJEZH3WAC9n2boWG3M2qcvaR3XzOH8bPJg1koGREgg",
+                            "amountUnit": "99999999500000",
+                            "decimals": 6
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [],
+        "x-readme": {
+          "code-samples": [
+            {
+              "code": "{\n  \"name\": \"代币归集\",\n  \"method\": \"POST\",\n  \"path\": \"https://api-bot-v1.dbotx.com/coin_tools/collect\",\n  \"params\": {\n    \"header\": [\n      \"x-api-key:YOUR_API_KEY\"\n    ]\n  },\n  \"body\": {\n    \"chain\": \"solana\",\n    \"fromWalletIds\": [\n      \"y2e8ft2o105l75\",\n      \"iay5tlko690fg3\"\n    ],\n    \"toAddress\": \"87CejvPwhBwuLr6cQ9Cjpb4ASTbXx1xaUyAm5J7RT4Bh\",\n    \"token\": \"\",\n    \"keepAmountUI\": 0.5,\n    \"gasFeeDelta\": 0,\n    \"maxFeePerGas\": 0,\n    \"priorityFee\": 0.001\n  },\n  \"response\": {\n    \"err\": false,\n    \"res\": [\n      {\n        \"err\": false,\n        \"msg\": \"OK\",\n        \"walletAddress\": \"Fnpyvw6cmc8VzKcyLnYENa78uCEsnAUJ5V7aRQXLodw4\",\n        \"txid\": \"3ghheeVeiT6vorkZJehjSvwi4afo8qWL5ru9YfJRzCgcxJyd52ravvobEGDHd6v8ZznfnBj5EGQbYqhEHR33ZHVA\",\n        \"amountUnit\": \"99999999500000\",\n        \"decimals\": 6\n      },\n      {\n        \"err\": false,\n        \"msg\": \"OK\",\n        \"walletAddress\": \"5yRfpu87ackjzYjDJWfxsMG9yC6zoYJPSKNF43SyyfJS\",\n        \"txid\": \"6hRyGmPQBadthc56bbqJivTaSCksHazrkmvidRt5ZQkkaKXJEZH3WAC9n2boWG3M2qcvaR3XzOH8bPJg1koGREgg\",\n        \"amountUnit\": \"99999999500000\",\n        \"decimals\": 6\n      }\n    ]\n  }\n}",
+              "language": "json",
+              "name": ""
+            },
+            {
+              "code": "curl --location --request POST 'https://api-bot-v1.dbotx.com/coin_tools/collect' \\\n     --header 'x-api-key: YOUR_API_KEY' \\\n     --header 'Content-Type: application/json' \\\n     --data-raw '{\"chain\":\"solana\",\"fromWalletIds\":[\"lvg40po10005q7\",\"lvg40po10005q8\"],\"toAddress\":\"87CejvPwhBwuLr6cQ9Cjpb4ASTbXx1xaUyAm5J7RT4Bh\",\"token\":\"\",\"gasFeeDelta\":0,\"maxFeePerGas\":0,\"priorityFee\":0.001,\"keepAmountUI\":0.5}'",
+              "language": "shell",
+              "name": ""
+            },
+            {
+              "code": "import requests\n\nurl = \"https://api-bot-v1.dbotx.com/coin_tools/collect\"\nheaders = {\n    'x-api-key': 'YOUR_API_KEY',\n    'Content-Type': 'application/json'\n}\npayload = {\n    'chain': 'solana',\n    'fromWalletIds': ['lvg40po10005q7', 'lvg40po10005q8'],\n    'toAddress': '87CejvPwhBwuLr6cQ9Cjpb4ASTbXx1xaUyAm5J7RT4Bh',\n    'token': '',\n    'gasFeeDelta': 0,\n    'maxFeePerGas': 0,\n    'priorityFee': 0.001,\n    'keepAmountUI': 0.5\n}\nresponse = requests.post(url, headers=headers, json=payload)\nprint(response.text)",
+              "language": "python",
+              "name": ""
+            },
+            {
+              "code": "const fetch = require('node-fetch');\n\nasync function makeAPICall() {\n  const url = 'https://api-bot-v1.dbotx.com/coin_tools/collect';\n  const apiKey = 'YOUR_API_KEY';\n  const payload = {\n    chain: 'solana',\n    fromWalletIds: ['lvg40po10005q7', 'lvg40po10005q8'],\n    toAddress: '87CejvPwhBwuLr6cQ9Cjpb4ASTbXx1xaUyAm5J7RT4Bh',\n    token: '',\n    gasFeeDelta: 0,\n    maxFeePerGas: 0,\n    priorityFee: 0.001,\n    keepAmountUI: 0.5\n  };\n\n  try {\n    const response = await fetch(url, {\n      method: 'POST',\n      headers: {\n        'x-api-key': apiKey,\n        'Content-Type': 'application/json'\n      },\n      body: JSON.stringify(payload)\n    });\n\n    if (!response.ok) {\n      throw new Error(`HTTP error! Status: ${response.status}`);\n    }\n\n    const data = await response.json();\n    console.log(JSON.stringify(data, null, 2));\n  } catch (error) {\n    console.error('Error:', error);\n  }\n}\n\nmakeAPICall();",
+              "language": "node",
+              "name": ""
+            }
+          ],
+          "samples-languages": [
+            "json",
+            "shell",
+            "python",
+            "node"
+          ]
+        },
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chain": {
+                    "type": "string",
+                    "description": "链 (solana/ethereum/base/bsc/tron)"
+                  },
+                  "fromWalletIds": {
+                    "type": "array",
+                    "description": "需要归集的源钱包id列表",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "toAddress": {
+                    "type": "string",
+                    "description": "接收代币的钱包地址"
+                  },
+                  "token": {
+                    "type": "string",
+                    "description": "需要归集的代币地址，\"\"表示归集当前链的主币"
+                  },
+                  "gasFeeDelta": {
+                    "type": "number",
+                    "description": "额外增加的gas (Gwei)，对EVM链有效"
+                  },
+                  "maxFeePerGas": {
+                    "type": "integer",
+                    "description": "基础gas超过此值时将不进行交易 (Gwei)，对EVM链有效"
+                  },
+                  "priorityFee": {
+                    "type": "number",
+                    "description": "优先费 (SOL)，对Solana有效，空字符串表示使用自动优先费"
+                  },
+                  "keepAmountUI": {
+                    "type": "number",
+                    "description": "每个地址保留的代币数量，0表示全部归集"
+                  }
+                },
+                "required": [
+                  "chain",
+                  "fromWalletIds",
+                  "toAddress",
+                  "token",
+                  "gasFeeDelta",
+                  "maxFeePerGas",
+                  "priorityFee",
+                  "keepAmountUI"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {}
+  },
+  "servers": [
+    {
+      "url": "https://api-bot-v1.dbotx.com"
+    }
+  ]
+}
