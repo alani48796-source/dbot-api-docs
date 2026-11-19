@@ -9,12 +9,12 @@ window.onload = function() {
         url: "./交易任务API_with_samples.json"
       },
       {
-        name: "批量工具 API",
-        url: ".批量工具API_with_samples.json"
+        name: "批量工具API",
+        url: "./批量工具API_with_samples.json"
       }
     ],
 
-    "urls.primaryName": "Trading API",
+    "urls.primaryName": "交易API",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
